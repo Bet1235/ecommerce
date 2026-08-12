@@ -13,8 +13,12 @@ export const productsApi = createApi({
       ProductsResponse,
       { limit?: number; skip?: number } | void
     >({
-      query: ({ limit = 100, skip = 0 } = {}) =>
-        `products?limit=${limit}&skip=${skip}`,
+       query: (params) => {
+        const limit = params?.limit ?? 30;
+        const skip = params?.skip ?? 0;
+
+        return `products?limit=${limit}&skip=${skip}`;
+      },
     }),
 
     searchProducts: builder.query<ProductsResponse, string>({
