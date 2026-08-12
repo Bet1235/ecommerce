@@ -1,12 +1,12 @@
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Bestsellers />
+      <Hero/>
+      <Bestseller />
       <Services />
       <FeaturedPosts />
-      <Testimonial />
-      <HomeCta />
+      <Reviews />
+      <HomeCTA />
     </>
   );
 };
