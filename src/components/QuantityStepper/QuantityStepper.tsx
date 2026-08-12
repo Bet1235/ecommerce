@@ -9,7 +9,7 @@ interface QuantityStepperProps {
 const QuantityStepper = ({
   quantity, max, onIncrement, onDecrement, size ='md'} : QuantityStepperProps) =>{
     return (
-      <div className={`stepper stepper--€{size}`}>
+      <div className={`stepper stepper--${size}`}>
         <button type="button"
         className="stepper_btn"
         onClick={onDecrement}

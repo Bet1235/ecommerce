@@ -1,6 +1,8 @@
+import { useMemo, useState } from "react";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useGetCategoriesQuery, useGetProductsQuery, useSearchProductsQuery } from "../../features/products/productsApi";
+import './Home.css';
 
 const Home = () => {
   const [search, setSearch] = useState('');
@@ -92,3 +94,4 @@ const Home = () => {
     </div>
   );
 };
+export default Home;
