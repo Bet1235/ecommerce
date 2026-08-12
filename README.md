@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+# Bandage E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive furniture e-commerce landing page built as part of the
+Learnable Frontend Standardisation Test.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Bandage is a responsive e-commerce storefront focused on presenting
+furniture products through a clean, mobile-first interface.
 
-## React Compiler
+The application demonstrates:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- TypeScript
+- Redux Toolkit
+- RTK Query
+- Vanilla CSS
+- Responsive design
+- DummyJSON product API
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Responsive landing page
+- Product catalogue
+- Bestseller products
+- Product search
+- Category filtering
+- Add to cart
+- Quantity controls
+- Persistent cart state
+- Loading states
+- Error states
+- Empty states
+- Mobile, tablet and desktop layouts
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Technology | Purpose |
+|---|---|
+| React | UI |
+| TypeScript | Type safety |
+| Vite | Development/build tool |
+| Redux Toolkit | Application state |
+| RTK Query | API integration and caching |
+| React Router | Routing |
+| Vanilla CSS | Styling |
+| DummyJSON | Product data |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## API
 
-```
+Product data is provided by DummyJSON.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Base API:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+https://dummyjson.com/
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
-```
+```text
+src/
+├── app/
+├── assets/
+├── components/
+├── features/
+├── pages/
+├── sections/
+├── types/
+└── utils/
