@@ -1,8 +1,8 @@
 // Changing number to EURO//
 export const formatPrice = (value: number) : string =>
-  new Intl.NumberFormat ('en-EURO', {
+  new Intl.NumberFormat ('en-US', {
     style: 'currency',
-    currency: 'EURO',
+    currency: 'USD',
   }).format(value);
 
   // rounding up percentage discount to 2 decimal//

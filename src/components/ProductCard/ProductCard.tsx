@@ -37,7 +37,7 @@ const ProductCard = ({product} : ProductCardProps)=> {
           {hasDiscount && <span className="product-card_price-original">{formatPrice(product.price)}</span>}
         </div>
 
-        <div className="product-card_rating" aria-label={`Rating: €{product.rating} out of 5`}>
+        <div className="product-card_rating" aria-label={`Rating: ${product.rating} out of 5`}>
           * {product.rating.toFixed(1)}
         </div>
 
