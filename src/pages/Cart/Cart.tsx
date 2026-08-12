@@ -53,7 +53,8 @@ const Cart = () => {
           </button>
         </section>
             <aside className="order-summary">
-              <h2 className="order-summary_title">Summary</h2>
+              <h2 className="order-summary_title">Summary of Order</h2>
+              
             </aside>
       </div>
        </div>
