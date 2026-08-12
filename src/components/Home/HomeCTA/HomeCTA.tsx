@@ -1,4 +1,4 @@
-import "./HomeCta.css";
+import "./HomeCTA.css";
 
 const HomeCta = () => {
   return (

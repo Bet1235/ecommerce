@@ -1,4 +1,4 @@
-import Hero from "../../components/hero/Hero";
+import Hero from "../../components/Home/Hero/Hero";
 import Bestsellers from "../../section/home/Bestseller/Bestseller";
 import FeaturedPosts from "../../section/home/FeaturedPosts/FeaturedPosts";
 import HomeCta from "../../section/home/HomeCTA/HomeCTA";
