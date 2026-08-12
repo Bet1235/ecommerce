@@ -1,0 +1,16 @@
+.footer__container {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .footer__container {
+    width: min(100% - 3rem, 1200px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer__container {
+    width: min(100% - 4rem, 1200px);
+  }
+}
