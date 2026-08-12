@@ -21,14 +21,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
     product.discountPercentage
   );
 
+  const isOutOfStock = product.stock <= 0;
+
   const handleAddToCart = () => {
+    if (isOutOfStock) return;
     dispatch(addToCart({ product }));
   };
 
   return (
     <article className="product-card">
-      <div className="product-card__image">
+      <div className="product-card__image-wrapper">
+        {product.discountPercentage > 0 && (
+          <span className="product-card__badge">
+            -{Math.round(product.discountPercentage)}%
+          </span>
+        )}
         <img
+        className="product-card__image"
           src={product.thumbnail}
           alt={product.title}
           loading="lazy"
@@ -44,25 +53,29 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.title}
         </h3>
 
-        <div className="product-card__rating">
+        <div className="product-card__rating"
+        aria-label={`Rated ${product.rating} out of 5`}>
           <span aria-hidden="true">★</span>
           <span>{product.rating.toFixed(1)}</span>
         </div>
 
-        <p className="product-card__price">
-          {formatPrice(discountedPrice)}
-        </p>
+        <div className="product-card__prices">
+          <span className="product-card__price">
+            {formatPrice(discountedPrice)}
+          </span>
 
-        {quantity === 0 ? (
-          <button
-            type="button"
-            className="product-card__button"
-            onClick={handleAddToCart}
-            disabled={product.stock === 0}
-          >
-            {product.stock === 0 ? "Unavailable" : "Add to cart"}
-          </button>
-        ) : (
+          {product.discountPercentage > 0 && (
+            <span className="product-card__old-price">
+              {formatPrice(product.price)}
+            </span>
+          )}
+        </div>
+
+    {isOutOfStock ? (
+          <p className="product-card__stock product-card__stock--out">
+            Out of stock
+          </p>
+        ) : quantity > 0 ? (
           <QuantityStepper
             quantity={quantity}
             max={product.stock}
@@ -73,9 +86,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
               dispatch(decrementQuantity(product.id))
             }
           />
+        ) : (
+          <button
+            type="button"
+            className="product-card__button"
+            onClick={handleAddToCart}
+          >
+            Add to cart
+          </button>
         )}
       </div>
     </article>
   );
 };
-export default ProductCard;
+
+export default ProductCard;   
