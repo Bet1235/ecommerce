@@ -5,7 +5,7 @@ import {
   selectCartSubtotal,
 } from "../../features/cart/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import CartItem from "../../components/CartItem/CartItem";
+import CartItem from "../../components/CartItems/CartItem";
 import "./Cart.css";
 
 const SHIPPING_THRESHOLD = 100;
