@@ -1,9 +1,9 @@
 import Hero from "../../components/Home/Hero/Hero";
-import Bestsellers from "../../section/home/Bestseller/Bestseller";
-import FeaturedPosts from "../../section/home/FeaturedPosts/FeaturedPosts";
-import HomeCta from "../../section/home/HomeCTA/HomeCTA";
-import Services from "../../section/home/Services/Service";
-import Testimonial from "../../section/home/Testimonials/Testimonials";
+import Bestsellers from "../../components/Home/Bestseller/Bestseller";
+import FeaturedPosts from "../../components/Home/FeaturedPosts/FeaturedPosts";
+import HomeCta from "../../components/Home/HomeCTA/HomeCTA";
+import Services from "../../components/Home/Services/Service";
+import Testimonial from "../../components/Home/Testimonials/Testimonials";
 
 const Home = () => {
   return (
