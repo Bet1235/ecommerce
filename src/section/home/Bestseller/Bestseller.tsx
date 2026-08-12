@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGetProductsQuery } from "../../../features/products/productsApi";
-import ProductCard from "../../ProductCard/ProductCard";
+import ProductCard from "../../../components/ProductCard/ProductCard";
 import "./Bestsellers.css";
 
 const INITIAL_LIMIT = 8;
