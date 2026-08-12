@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectCartCount, selectCartItems, selectCartSubtotal } from "../../features/cart/cartSlice";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import { Link } from "react-router-dom";
-import CartItem from "../../components/CartItem/CartItem";
+
 
 const SHIPPING_THRESHOLD = 50;
 const SHIPPING_FEE = 6.99;
