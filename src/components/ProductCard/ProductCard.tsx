@@ -1,49 +1,81 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Product, ProductsResponse } from "../../types/product";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { addToCart, decrementQuantity, incrementQuantity, selectItemQuantity } from "../../features/cart/cartSlice";
+import type { Product } from "../../types/product";
+import { formatPrice, getDiscountedPrice } from "../../utils/price";
+import QuantityStepper from "../QuantityStepper/QuantityStepper";
+import "./ProductCard.css";
 
-export const productsApi = createApi({
-  reducerPath: "productsApi",
+interface ProductCardProps {
+  product: Product;
+}
 
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://dummyjson.com/",
-  }),
+const ProductCard = ({ product }: ProductCardProps) => {
+  const dispatch = useAppDispatch();
 
-  endpoints: (builder) => ({
-    getProducts: builder.query<
-      ProductsResponse,
-      { limit?: number; skip?: number } | void
-    >({
-      query: ({ limit = 100, skip = 0 } = {}) =>
-        `products?limit=${limit}&skip=${skip}`,
-    }),
+  const quantity = useAppSelector(
+    selectItemQuantity(product.id)
+  );
 
-    searchProducts: builder.query<ProductsResponse, string>({
-      query: (query) =>
-        `products/search?q=${encodeURIComponent(query)}`,
-    }),
+  const discountedPrice = getDiscountedPrice(
+    product.price,
+    product.discountPercentage
+  );
 
-    getCategories: builder.query<string[], void>({
-      query: () => "products/categories",
+  const handleAddToCart = () => {
+    dispatch(addToCart({ product }));
+  };
 
-      transformResponse: (
-        response: Array<string | { slug: string; name: string }>
-      ) =>
-        response.map((category) =>
-          typeof category === "string"
-            ? category
-            : category.slug
-        ),
-    }),
+  return (
+    <article className="product-card">
+      <div className="product-card__image">
+        <img
+          src={product.thumbnail}
+          alt={product.title}
+          loading="lazy"
+        />
+      </div>
 
-    getProductById: builder.query<Product, number>({
-      query: (id) => `products/${id}`,
-    }),
-  }),
-});
+      <div className="product-card__content">
+        <span className="product-card__category">
+          {product.category}
+        </span>
 
-export const {
-  useGetProductsQuery,
-  useSearchProductsQuery,
-  useGetCategoriesQuery,
-  useGetProductByIdQuery,
-} = productsApi;
+        <h3 className="product-card__title">
+          {product.title}
+        </h3>
+
+        <div className="product-card__rating">
+          <span aria-hidden="true">★</span>
+          <span>{product.rating.toFixed(1)}</span>
+        </div>
+
+        <p className="product-card__price">
+          {formatPrice(discountedPrice)}
+        </p>
+
+        {quantity === 0 ? (
+          <button
+            type="button"
+            className="product-card__button"
+            onClick={handleAddToCart}
+            disabled={product.stock === 0}
+          >
+            {product.stock === 0 ? "Unavailable" : "Add to cart"}
+          </button>
+        ) : (
+          <QuantityStepper
+            quantity={quantity}
+            max={product.stock}
+            onIncrement={() =>
+              dispatch(incrementQuantity(product.id))
+            }
+            onDecrement={() =>
+              dispatch(decrementQuantity(product.id))
+            }
+          />
+        )}
+      </div>
+    </article>
+  );
+};
+export default ProductCard;
