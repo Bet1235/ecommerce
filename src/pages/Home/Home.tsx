@@ -50,7 +50,7 @@ const Home = () => {
       {categories && categories.length > 0 && (
         <div className="filter-bar" role="tablist" aria-label="Filter by category">
           <button type="button"
-          className={`filter-chip €{category === 'all' ? 'filter-chip--active' : ''}`}
+          className={`filter-chip ${category === 'all' ? 'filter-chip--active' : ''}`}
           onClick={() => setCategory('all')}> All </button>
           {categories.map((c) => (
             <button key={c}

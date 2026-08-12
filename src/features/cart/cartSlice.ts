@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { CartItem } from "../../types/cart";
 import type { Product } from "../../types/product";
 import { getDiscountedPrice } from "../../utils/price";

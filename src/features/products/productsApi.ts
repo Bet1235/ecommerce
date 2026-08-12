@@ -9,11 +9,11 @@ export const productsApi = createApi({
     query: (params) => {
       const limit = params?.limit ?? 100;
       const skip = params?.skip ?? 0;
-      return `products?limit=€{limit}&skip=€{skip}`;
+      return `products?limit=${limit}&skip=${skip}`;
     },
   }),
   searchProducts: builder.query<ProductsResponse, string> ({
-    query: (q) => `products/search?=€{encodeURIComponent(q)}`,
+    query: (q) => `products/search?=${encodeURIComponent(q)}`,
   }),
   getCategories: builder.query<string[], void>({
     query: () => 'products/categories',
@@ -21,7 +21,7 @@ export const productsApi = createApi({
       response.map((c) => (typeof c === 'string' ? c : c.slug)),
   }),
   getProductById: builder.query<Product, number> ({
-    query: (id) => `products/€{id}`,
+    query: (id) => `products/${id}`,
   }),
   }),
 });
