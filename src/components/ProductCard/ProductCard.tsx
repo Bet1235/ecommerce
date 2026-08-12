@@ -1,64 +1,49 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addToCart, decrementQuantity, incrementQuantity, selectItemQuantity } from "../../features/cart/cartSlice";
-import type { Product } from "../../types/product";
-import { formatPrice, getDiscountedPrice } from "../../utils/price";
-import QuantityStepper from "../QuantityStepper/QuantityStepper";
-import "./ProductCard.css";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { Product, ProductsResponse } from "../../types/product";
 
-interface ProductCardProps {
-  product: Product;
-}
-const ProductCard = ({product} : ProductCardProps)=> {
-  const dispatch = useAppDispatch();
-  const quantity = useAppSelector(selectItemQuantity(product.id));
-  const hasDiscount =  product.discountPercentage > 0;
-  const discountedPrice = getDiscountedPrice(product.price, product.discountPercentage);
-  const outOfStock = product.stock === 0;
+export const productsApi = createApi({
+  reducerPath: "productsApi",
 
-  return (
-    <article className="product-card">
-      <div className="product-card_image-wrap">
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        className="product-card_image"
-        loading="lazy"/>
-        {hasDiscount && (
-          <span className="product-card_badge">-{Math.round(product.discountPercentage)}%</span>
-        )}
-        {outOfStock && <span className="product-card_stock-badge">Out of Stock</span>}
-        </div>
-      <div className="product-card_body">
-        <p className="product-card_category">{product.category}</p>
-        <h3 className="product-card_title">{product.title}</h3>
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://dummyjson.com/",
+  }),
 
-        <div className="product-card_price-row">
-          <span className="product-card_price">{formatPrice(discountedPrice)}</span>
-          {hasDiscount && <span className="product-card_price-original">{formatPrice(product.price)}</span>}
-        </div>
+  endpoints: (builder) => ({
+    getProducts: builder.query<
+      ProductsResponse,
+      { limit?: number; skip?: number } | void
+    >({
+      query: ({ limit = 100, skip = 0 } = {}) =>
+        `products?limit=${limit}&skip=${skip}`,
+    }),
 
-        <div className="product-card_rating" aria-label={`Rating: ${product.rating} out of 5`}>
-          * {product.rating.toFixed(1)}
-        </div>
+    searchProducts: builder.query<ProductsResponse, string>({
+      query: (query) =>
+        `products/search?q=${encodeURIComponent(query)}`,
+    }),
 
-        <div className="product-card_action">
-          {quantity === 0 ? (
-            <button type="button"
-            className="product-card_add-btn"
-            onClick={() => dispatch(addToCart({product}))}
-            disabled={outOfStock}>
-              {outOfStock ? "Unavailable" : "Add to Cart"}
-            </button>
-          ) : (
-            <QuantityStepper
-            quantity={quantity}
-            max={product.stock}
-            onIncrement={() => dispatch(incrementQuantity(product.id))}
-            onDecrement={() => dispatch(decrementQuantity(product.id))}/>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-};
-export default ProductCard;
+    getCategories: builder.query<string[], void>({
+      query: () => "products/categories",
+
+      transformResponse: (
+        response: Array<string | { slug: string; name: string }>
+      ) =>
+        response.map((category) =>
+          typeof category === "string"
+            ? category
+            : category.slug
+        ),
+    }),
+
+    getProductById: builder.query<Product, number>({
+      query: (id) => `products/${id}`,
+    }),
+  }),
+});
+
+export const {
+  useGetProductsQuery,
+  useSearchProductsQuery,
+  useGetCategoriesQuery,
+  useGetProductByIdQuery,
+} = productsApi;
