@@ -1,10 +1,11 @@
+import Hero from "../../components/hero/Hero";
 import Bestsellers from "../../section/home/Bestseller/Bestseller";
 
 const Home = () => {
   return (
     <main className="home">
       {/* Hero will go here */}
-
+      <Hero/>
       <Bestsellers />
 
       {/* Other landing-page sections will go here */}
