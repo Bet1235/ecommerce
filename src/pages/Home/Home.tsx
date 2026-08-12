@@ -1,5 +1,6 @@
 import Hero from "../../components/hero/Hero";
 import Bestsellers from "../../section/home/Bestseller/Bestseller";
+import Services from "../../section/home/Services/Service";
 
 const Home = () => {
   return (
@@ -7,7 +8,7 @@ const Home = () => {
       {/* Hero will go here */}
       <Hero/>
       <Bestsellers />
-
+      <Services/>
       {/* Other landing-page sections will go here */}
     </main>
   );
