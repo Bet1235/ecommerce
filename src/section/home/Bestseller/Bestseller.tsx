@@ -1,111 +1,80 @@
 import { useState } from "react";
-import ProductCard from "../../../components/ProductCard/ProductCard";
-import EmptyState from "../../../components/EmptyState/EmptyState";
 import { useGetProductsQuery } from "../../../features/products/productsApi";
+import ProductCard from "../../ProductCard/ProductCard";
 import "./Bestsellers.css";
 
-const INITIAL_PRODUCT_COUNT = 8;
-const FULL_PRODUCT_COUNT = 20;
+const INITIAL_LIMIT = 8;
+const MORE_LIMIT = 20;
 
 const Bestsellers = () => {
   const [showMore, setShowMore] = useState(false);
 
-  const { data, isLoading, isError, refetch } =
-    useGetProductsQuery({
-      limit: showMore
-        ? FULL_PRODUCT_COUNT
-        : INITIAL_PRODUCT_COUNT,
-    });
-
-  if (isLoading) {
-    return (
-      <section className="bestsellers">
-        <div className="container">
-          <div className="bestsellers__heading">
-            <p className="section-eyebrow">Featured Products</p>
-            <h2>Bestsellers</h2>
-          </div>
-
-          <div className="product-grid product-grid--skeleton">
-            {Array.from({ length: INITIAL_PRODUCT_COUNT }).map(
-              (_, index) => (
-                <div
-                  className="product-skeleton"
-                  key={index}
-                />
-              ),
-            )}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (isError) {
-    return (
-      <section className="bestsellers">
-        <div className="container">
-          <EmptyState
-            title="Products unavailable"
-            message="We couldn't load the products. Please try again."
-          />
-
-          <button
-            type="button"
-            className="bestsellers__retry"
-            onClick={refetch}
-          >
-            Try again
-          </button>
-        </div>
-      </section>
-    );
-  }
+  const { data, isLoading, isError, refetch } = useGetProductsQuery({
+    limit: showMore ? MORE_LIMIT : INITIAL_LIMIT,
+    skip: 0,
+  });
 
   const products = data?.products ?? [];
 
   return (
-    <section className="bestsellers">
+    <section className="bestsellers" id="products">
       <div className="container">
-        <div className="bestsellers__heading">
-          <p className="section-eyebrow">
+        <div className="bestsellers__header">
+          <p className="bestsellers__eyebrow">
             Featured Products
           </p>
 
           <h2>Bestsellers</h2>
 
-          <p>
+          <p className="bestsellers__description">
             Discover our most popular products.
           </p>
         </div>
 
-        {products.length > 0 ? (
-          <div className="product-grid">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-              />
-            ))}
+        {isLoading && (
+          <div className="bestsellers__state">
+            <p>Loading products...</p>
           </div>
-        ) : (
-          <EmptyState
-            title="No products found"
-            message="There are no products available right now."
-          />
         )}
 
-        <div className="bestsellers__action">
-          {!showMore && (
+        {isError && (
+          <div className="bestsellers__state">
+            <p>Unable to load products.</p>
+
             <button
               type="button"
-              className="bestsellers__view-more"
-              onClick={() => setShowMore(true)}
+              onClick={refetch}
+              className="bestsellers__retry"
             >
-              View More Products
+              Try again
             </button>
-          )}
-        </div>
+          </div>
+        )}
+
+        {!isLoading && !isError && (
+          <>
+            <div className="bestsellers__grid">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                />
+              ))}
+            </div>
+
+            {!showMore && (
+              <div className="bestsellers__action">
+                <button
+                  type="button"
+                  className="bestsellers__view-more"
+                  onClick={() => setShowMore(true)}
+                >
+                  View More Products
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </section>
   );
