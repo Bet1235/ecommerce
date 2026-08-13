@@ -17,76 +17,56 @@
 
 .bestsellers__eyebrow {
   margin: 0 0 8px;
-
   color: var(--color-text);
-
   font-size: 14px;
   font-weight: 400;
-
   text-transform: none;
   letter-spacing: 0;
 }
 
 .bestsellers__header h2 {
   margin: 0;
-
   color: var(--color-black);
-
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
-
   text-transform: uppercase;
 }
 
 .bestsellers__description {
   margin: 8px auto 0;
-
   max-width: 500px;
-
   color: var(--color-text);
-
   font-size: 14px;
   line-height: 1.5;
 }
 
 .bestsellers__grid {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   column-gap: 20px;
   row-gap: 40px;
-
   width: 100%;
 }
 
 .bestsellers__action {
   display: flex;
   justify-content: center;
-
   margin-top: 45px;
 }
 
 .bestsellers__view-more,
 .bestsellers__retry {
   min-width: 160px;
-
   padding: 12px 22px;
-
   color: var(--color-primary);
   background: var(--color-white);
-
   border: 1px solid var(--color-primary);
   border-radius: 2px;
-
   font-size: 12px;
   font-weight: 700;
-
   text-transform: uppercase;
-
   cursor: pointer;
-
   transition:
     color 0.2s ease,
     background-color 0.2s ease;
@@ -101,13 +81,9 @@
 
 .bestsellers__state {
   display: grid;
-
   min-height: 250px;
-
   place-items: center;
-
   color: var(--color-text);
-
   text-align: center;
 }
 
@@ -161,14 +137,13 @@
 
   .bestsellers__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-
     column-gap: 18px;
     row-gap: 35px;
   }
 }
 
 
-@media (min-width: 1100px) {
+@media (min-width: 1020px) {
   .bestsellers {
     padding: 75px 40px 85px;
   }
@@ -180,7 +155,6 @@
 
   .bestsellers__grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-
     column-gap: 20px;
     row-gap: 35px;
   }

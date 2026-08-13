@@ -90,12 +90,12 @@
     background-position: 0 50%;
   }
 }
-@media (max-width:1024px){
+@media (max-width:1020px){
   .product-grid{
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width:720px){
+@media (max-width:767px){
   .product-grid{
     grid-template-columns: repeat(2, 1fr);
     gap:12px;

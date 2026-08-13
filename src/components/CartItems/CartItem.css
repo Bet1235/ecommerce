@@ -85,7 +85,7 @@
   font-size: 0.8rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 767px) {
   .cart-item {
     align-items: flex-start;
   }

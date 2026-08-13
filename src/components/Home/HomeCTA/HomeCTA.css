@@ -78,7 +78,6 @@
 
 .home-cta__button:hover {
   background: #1d91d0;
-
   border-color: #1d91d0;
 }
 
@@ -102,7 +101,7 @@
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1020px) {
   .home-cta {
     min-height: 395px;
     padding: 80px 40px;
