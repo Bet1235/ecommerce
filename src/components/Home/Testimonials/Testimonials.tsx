@@ -1,81 +1,93 @@
 import "./Testimonials.css";
 
-const testimonials = [
-  {
-    quote:
-      "The whole shopping experience was simple and smooth. I found exactly what I was looking for and the quality was excellent.",
-    name: "Sarah Johnson",
-    role: "Verified Customer",
-  },
-  {
-    quote:
-      "I love how easy it was to find beautiful pieces for my home. Everything arrived safely and looked exactly as expected.",
-    name: "Daniel Williams",
-    role: "Verified Customer",
-  },
-  {
-    quote:
-      "Great products, beautiful designs, and excellent customer service. I would definitely shop here again.",
-    name: "Amelia Brown",
-    role: "Verified Customer",
-  },
+import Avatar from "../../../assets/reviews/#user.1.png";
+
+import Review1 from "../../../assets/reviews/unsplash_rhn8ff1G_QY.png";
+import Review2 from "../../../assets/reviews/unsplash_jo40QKbxUP0.png";
+import Review3 from "../../../assets/reviews/unsplash_ah7yIXWrtKs.png";
+import Review4 from "../../../assets/reviews/unsplash_UUTOuXqaExk.png";
+import Review5 from "../../../assets/reviews/unsplash_QLGA5Zv3doo.png";
+import Review6 from "../../../assets/reviews/unsplash_GHztzvLLOdQ.png";
+import Review7 from "../../../assets/reviews/unsplash_6_dx4H4yi1Y.png";
+import Review8 from "../../../assets/reviews/unsplash_1R1ecHV4i0Y.png";
+import Review9 from "../../../assets/reviews/unsplash_0y8p69vwIYM.png";
+
+const galleryImages = [
+  Review1,
+  Review2,
+  Review3,
+  Review4,
+  Review5,
+  Review6,
+  Review7,
+  Review8,
+  Review9,
 ];
 
-const Testimonial = () => {
+const Testimonials = () => {
   return (
     <section className="testimonial">
       <div className="container">
-        <div className="testimonial__header">
-          <p className="testimonial__eyebrow">
-            Customer Stories
-          </p>
+        <div className="testimonial__content">
+          {/* LEFT SIDE */}
+          <div className="testimonial__review">
+            <h2 className="testimonial__title">
+              What they say about us
+            </h2>
 
-          <h2 className="testimonial__title">
-            What our customers say
-          </h2>
-        </div>
+            <div className="testimonial__avatar">
+              <img
+                src={Avatar}
+                alt="Regina Miles"
+              />
+            </div>
 
-        <div className="testimonial__grid">
-          {testimonials.map((testimonial) => (
-            <article
-              className="testimonial-card"
-              key={testimonial.name}
+            <div
+              className="testimonial__rating"
+              aria-label="5 star rating"
             >
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span className="testimonial__star--empty">
+                ☆
+              </span>
+            </div>
+
+            <p className="testimonial__quote">
+              Slate helps you see how many days you need to work to
+              reach your financial goal.
+            </p>
+
+            <p className="testimonial__name">
+              Regina Miles
+            </p>
+
+            <p className="testimonial__role">
+              Designer
+            </p>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="testimonial__gallery">
+            {galleryImages.map((image, index) => (
               <div
-                className="testimonial-card__stars"
-                aria-label="5 out of 5 stars"
+                className="testimonial__gallery-item"
+                key={index}
               >
-                ★★★★★
+                <img
+                  src={image}
+                  alt={`Customer gallery ${index + 1}`}
+                  loading="lazy"
+                />
               </div>
-
-              <blockquote className="testimonial-card__quote">
-                “{testimonial.quote}”
-              </blockquote>
-
-              <div className="testimonial-card__author">
-                <div
-                  className="testimonial-card__avatar"
-                  aria-hidden="true"
-                >
-                  {testimonial.name.charAt(0)}
-                </div>
-
-                <div>
-                  <p className="testimonial-card__name">
-                    {testimonial.name}
-                  </p>
-
-                  <p className="testimonial-card__role">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Testimonial;
+export default Testimonials;
