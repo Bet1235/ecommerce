@@ -58,7 +58,7 @@ const Header = () => {
             Bandage
           </Link>
 
-          {/* Desktop navigation */}
+         
           <nav
             className="header__nav"
             aria-label="Main navigation"
@@ -68,11 +68,15 @@ const Header = () => {
             </NavLink>
 
             <NavLink to="/" className="header__link">
-              Product
+              Shop
             </NavLink>
 
             <NavLink to="/" className="header__link">
-              Pricing
+              About
+            </NavLink>
+
+            <NavLink to="/" className="header__link">
+              Blog
             </NavLink>
 
             <NavLink to="/" className="header__link">

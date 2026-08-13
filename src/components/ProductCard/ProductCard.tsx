@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addToCart, decrementQuantity, incrementQuantity, selectItemQuantity } from "../../features/cart/cartSlice";
+import {  decrementQuantity, incrementQuantity, selectItemQuantity } from "../../features/cart/cartSlice";
 import type { Product } from "../../types/product";
 import { formatPrice, getDiscountedPrice } from "../../utils/price";
 import QuantityStepper from "../QuantityStepper/QuantityStepper";
@@ -22,11 +22,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
   );
 
   const isOutOfStock = product.stock <= 0;
-
-  const handleAddToCart = () => {
-    if (isOutOfStock) return;
-    dispatch(addToCart({ product }));
-  };
 
   return (
     <article className="product-card">
@@ -86,15 +81,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               dispatch(decrementQuantity(product.id))
             }
           />
-        ) : (
-          <button
-            type="button"
-            className="product-card__button"
-            onClick={handleAddToCart}
-          >
-            Add to cart
-          </button>
-        )}
+        ) : null}
       </div>
     </article>
   );

@@ -24,10 +24,10 @@ const Bestsellers = () => {
             Featured Products
           </p>
 
-          <h2>Bestsellers</h2>
+          <h2>BESTSELLER PRODUCTS</h2>
 
           <p className="bestsellers__description">
-            Discover our most popular products.
+            Problems trying to resolve the conflict between
           </p>
         </div>
 

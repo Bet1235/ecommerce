@@ -2,28 +2,93 @@ import "./Service.css";
 
 const services = [
   {
-    number: "01",
-    title: "Free Shipping",
-    description:
-      "Enjoy free delivery on selected orders and have your furniture delivered right to your door.",
+    id: "easy-wins",
+    title: "Easy Wins",
+    description: "Get your best looking smile now!",
+    icon: (
+      <svg
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        className="service-card__icon"
+      >
+        <path
+          d="M24 6v36M6 24h36"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <circle
+          cx="24"
+          cy="24"
+          r="15"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </svg>
+    ),
   },
   {
-    number: "02",
-    title: "Secure Payment",
+    id: "concrete",
+    title: "Concrete",
     description:
-      "Shop with confidence using a secure and reliable checkout experience.",
+      "Defalcate is most focused in helping you discover your most beautiful smile",
+    icon: (
+      <svg
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        className="service-card__icon"
+      >
+        <rect
+          x="9"
+          y="9"
+          width="30"
+          height="30"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="M16 16h16M16 24h16M16 32h10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
   },
   {
-    number: "03",
-    title: "Easy Returns",
+    id: "hack-growth",
+    title: "Hack Growth",
     description:
-      "Changed your mind? Our straightforward return process makes shopping easier.",
-  },
-  {
-    number: "04",
-    title: "Customer Support",
-    description:
-      "Our support team is available to help you with your orders and questions.",
+      "Overcame any hurdle or any other problem.",
+    icon: (
+      <svg
+        viewBox="0 0 48 48"
+        aria-hidden="true"
+        className="service-card__icon"
+      >
+        <path
+          d="M8 36 20 24l8 7 12-15"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 16h8v8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
 ];
 
@@ -31,25 +96,21 @@ const Services = () => {
   return (
     <section className="services">
       <div className="container">
-        <div className="services__header">
-          <p className="services__eyebrow">Why Shop With Us</p>
-
+        <header className="services__header">
           <h2 className="services__title">
-            We make shopping simple
+            THE BEST SERVICES
           </h2>
-
-          <p className="services__intro">
-            Everything you need for a smooth and enjoyable
-            shopping experience.
-          </p>
-        </div>
+        </header>
 
         <div className="services__grid">
           {services.map((service) => (
-            <article className="service-card" key={service.number}>
-              <span className="service-card__number">
-                {service.number}
-              </span>
+            <article
+              className="service-card"
+              key={service.id}
+            >
+              <div className="service-card__icon-wrapper">
+                {service.icon}
+              </div>
 
               <h3 className="service-card__title">
                 {service.title}

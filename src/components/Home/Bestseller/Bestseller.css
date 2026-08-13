@@ -1,55 +1,109 @@
+/* ========================================
+   BESTSELLERS SECTION
+   ======================================== */
+
 .bestsellers {
-  padding: 4rem 0;
+  width: 100%;
+  padding: 70px 0 80px;
   background: var(--color-white);
 }
 
+.bestsellers .container {
+  width: 100%;
+}
+
+
+/* ========================================
+   SECTION HEADER
+   ======================================== */
+
 .bestsellers__header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 38px;
   text-align: center;
 }
 
 .bestsellers__eyebrow {
-  margin: 0 0 0.5rem;
-  color: var(--color-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+
+  color: var(--color-text);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .bestsellers__header h2 {
   margin: 0;
+
   color: var(--color-black);
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-transform: uppercase;
 }
 
 .bestsellers__description {
+  margin: 8px auto 0;
+
   max-width: 500px;
-  margin: 0.75rem auto 0;
+
   color: var(--color-text);
+
+  font-size: 14px;
+  line-height: 1.5;
 }
+
+
+/* ========================================
+   PRODUCT GRID
+   ======================================== */
 
 .bestsellers__grid {
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 1rem;
+
+  column-gap: 20px;
+  row-gap: 40px;
+
+  width: 100%;
 }
+
+
+/* ========================================
+   VIEW MORE BUTTON
+   ======================================== */
 
 .bestsellers__action {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+
+  margin-top: 45px;
 }
 
 .bestsellers__view-more,
 .bestsellers__retry {
-  padding: 0.8rem 1.5rem;
+  min-width: 160px;
+
+  padding: 12px 22px;
+
   color: var(--color-primary);
   background: var(--color-white);
+
   border: 1px solid var(--color-primary);
   border-radius: 2px;
-  font-weight: 600;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
   cursor: pointer;
+
   transition:
     color 0.2s ease,
     background-color 0.2s ease;
@@ -61,27 +115,116 @@
   background: var(--color-primary);
 }
 
+
+/* ========================================
+   LOADING / ERROR
+   ======================================== */
+
 .bestsellers__state {
   display: grid;
+
   min-height: 250px;
+
   place-items: center;
-  text-align: center;
+
   color: var(--color-text);
+
+  text-align: center;
 }
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 767px) {
+  .bestsellers {
+    padding: 55px 20px 65px;
+  }
+
+  .bestsellers__header {
+    margin-bottom: 30px;
+  }
+
+  .bestsellers__eyebrow {
+    font-size: 12px;
+  }
+
+  .bestsellers__header h2 {
+    font-size: 20px;
+  }
+
+  .bestsellers__description {
+    max-width: 280px;
+
+    font-size: 12px;
+  }
+
+  /*
+    Figma mobile:
+    ONE product per row.
+  */
+
+  .bestsellers__grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 25px;
+  }
+
+  .bestsellers__action {
+    margin-top: 35px;
+  }
+
+  .bestsellers__view-more {
+    min-width: 150px;
+
+    padding: 11px 18px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
 
 @media (min-width: 768px) {
   .bestsellers {
-    padding: 5rem 0;
+    padding: 65px 30px 75px;
   }
 
   .bestsellers__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem 1.25rem;
+
+    column-gap: 18px;
+    row-gap: 35px;
   }
 }
 
+
+/* ========================================
+   DESKTOP
+   ======================================== */
+
 @media (min-width: 1100px) {
+  .bestsellers {
+    padding: 75px 40px 85px;
+  }
+
+  .bestsellers__header {
+    margin-bottom: 40px;
+  }
+
+  /*
+    Figma desktop:
+    FIVE products per row.
+  */
+
   .bestsellers__grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    column-gap: 20px;
+    row-gap: 35px;
   }
 }
