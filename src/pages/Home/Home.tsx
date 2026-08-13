@@ -4,6 +4,7 @@ import FeaturedPosts from "../../components/Home/FeaturedPosts/FeaturedPosts";
 import HomeCta from "../../components/Home/HomeCTA/HomeCTA";
 import Services from "../../components/Home/Services/Service";
 import Testimonials from "../../components/Home/Testimonials/Testimonials";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <FeaturedPosts/>
       <Testimonials/>
       <HomeCta/>
+      <Footer/>
       
     </main>
   );
