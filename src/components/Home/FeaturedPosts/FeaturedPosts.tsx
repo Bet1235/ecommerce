@@ -1,26 +1,25 @@
 import "./FeaturedPosts.css";
 
+import featuredPost1 from "../../../assets/posts/fixed-height1.png";
+import featuredPost2 from "../../../assets/posts/unsplash2.png";
+import featuredPost3 from "../../../assets/posts/unsplash3.png";
+
+
 const posts = [
   {
-    number: "01",
-    category: "Interior",
-    title: "How to create a comfortable home",
-    description:
-      "Simple ideas for creating a home that feels welcoming, comfortable, and personal.",
+    id: 1,
+    image: featuredPost1,
+    title: "Loudest à la Madison #1 (L'Integral)",
   },
   {
-    number: "02",
-    category: "Furniture",
-    title: "Choosing furniture for your space",
-    description:
-      "A practical guide to choosing furniture that works beautifully with your space.",
+    id: 2,
+    image: featuredPost2,
+    title: "Loudest à la Madison #1 (L'Integral)",
   },
   {
-    number: "03",
-    category: "Lifestyle",
-    title: "Small changes, beautiful spaces",
-    description:
-      "Discover simple ways to refresh your home without completely changing your interior.",
+    id: 3,
+    image: featuredPost3,
+    title: "Loudest à la Madison #1 (L'Integral)",
   },
 ];
 
@@ -29,53 +28,86 @@ const FeaturedPosts = () => {
     <section className="featured-posts">
       <div className="container">
         <div className="featured-posts__header">
-          <div>
-            <p className="featured-posts__eyebrow">
-              From Our Journal
-            </p>
-
-            <h2 className="featured-posts__title">
-              Featured Posts
-            </h2>
-          </div>
-
-          <a
-            href="#"
-            className="featured-posts__link"
-          >
-            View All Posts
-          </a>
+          <h2 className="featured-posts__title">
+            Featured Posts
+          </h2>
         </div>
 
         <div className="featured-posts__grid">
           {posts.map((post) => (
             <article
               className="post-card"
-              key={post.number}
+              key={post.id}
             >
               <div className="post-card__image">
-                <span>{post.number}</span>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                />
+
+                <span className="post-card__badge">
+                  NEW
+                </span>
               </div>
 
               <div className="post-card__content">
-                <p className="post-card__category">
-                  {post.category}
-                </p>
+                <div className="post-card__categories">
+                  <span className="post-card__category post-card__category--active">
+                    Google
+                  </span>
+
+                  <span className="post-card__category">
+                    Trending
+                  </span>
+
+                  <span className="post-card__category">
+                    New
+                  </span>
+                </div>
 
                 <h3 className="post-card__title">
                   {post.title}
                 </h3>
 
                 <p className="post-card__description">
-                  {post.description}
+                  We focus on ergonomics and meeting you
+                  where you work. It's only a keystroke away.
                 </p>
+
+                <div className="post-card__meta">
+                  <span className="post-card__date">
+                    <span
+                      className="post-card__meta-icon"
+                      aria-hidden="true"
+                    >
+                      ◷
+                    </span>
+                    22 April 2021
+                  </span>
+
+                  <span className="post-card__comments">
+                    <span
+                      className="post-card__meta-icon"
+                      aria-hidden="true"
+                    >
+                      ▥
+                    </span>
+                    10 comments
+                  </span>
+                </div>
 
                 <a
                   href="#"
                   className="post-card__read-more"
                 >
-                  Read More
-                  <span aria-hidden="true"> →</span>
+                  Learn More
+                  <span
+                    className="post-card__arrow"
+                    aria-hidden="true"
+                  >
+                    ›
+                  </span>
                 </a>
               </div>
             </article>
