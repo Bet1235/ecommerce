@@ -135,11 +135,6 @@
     font-size: 12px;
   }
 
-  /*
-    Figma mobile:
-    ONE product per row.
-  */
-
   .bestsellers__grid {
     grid-template-columns: 1fr;
 
