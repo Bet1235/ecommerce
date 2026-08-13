@@ -1,44 +1,40 @@
 import "./Hero.css";
+import heroPic from "../../../assets/hero/col-md-4.png";
+import heroPicOne from "../../../assets/hero/card-item.png";
+import heroPicTwo from "../../../assets/hero/card-item1.png";
+import heroPicThree from "../../../assets/hero/card-item2.png";
+
 
 const Hero = () => {
   return (
     <section className="hero">
-      <div className="hero__container container">
-        <div className="hero__content">
-          <p className="hero__eyebrow">
-            Modern Furniture Collection
-          </p>
+      <div className="hero__grid">
+          <img         
+            src={heroPic}
+            alt=""
+            className="hero__image hero__image--1"
+          />
 
-          <h1 className="hero__title">
-            Make Your Home
-            <br />
-            Beautiful &amp; Comfortable
-          </h1>
+         <img
+            src={heroPicOne}
+            alt=""
+            className="hero__image hero__image--2"
+          />
+          <img
+            src={heroPicTwo}
+            alt=""
+            className="hero__image hero__image--3"
+          />
 
-          <p className="hero__description">
-            Discover carefully selected furniture designed to
-            bring comfort, style, and character into your home.
-          </p>
-
-          <a
-            href="#products"
-            className="hero__button"
-          >
-            Shop Now
-          </a>
-        </div>
-
-        <div className="hero__visual" aria-hidden="true">
-          <div className="hero__shape hero__shape--one" />
-          <div className="hero__shape hero__shape--two" />
-
-          <div className="hero__chair">
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
-      </div>
+          <img
+            src={heroPicThree}
+            alt=""
+            className="hero__image hero__image--4"
+          />
+       </div>
+          
+       
+     
     </section>
   );
 };
