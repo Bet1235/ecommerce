@@ -8,14 +8,14 @@ import Testimonials from "../../components/Home/Testimonials/Testimonials";
 const Home = () => {
   return (
     <main className="home">
-      {/* Hero will go here */}
+     
       <Hero/>
       <Bestsellers />
       <Services/>
       <FeaturedPosts/>
       <Testimonials/>
       <HomeCta/>
-      {/* Other landing-page sections will go here */}
+      
     </main>
   );
 };
