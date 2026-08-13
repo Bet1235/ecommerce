@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* Desktop top bar */}
+      
       <div className="header__topbar">
         <div className="header__topbar-inner container">
           <div className="header__topbar-left">
