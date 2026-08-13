@@ -3,7 +3,7 @@ import Bestsellers from "../../components/Home/Bestseller/Bestseller";
 import FeaturedPosts from "../../components/Home/FeaturedPosts/FeaturedPosts";
 import HomeCta from "../../components/Home/HomeCTA/HomeCTA";
 import Services from "../../components/Home/Services/Service";
-import Testimonial from "../../components/Home/Testimonials/Testimonials";
+import Testimonials from "../../components/Home/Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <Bestsellers />
       <Services/>
       <FeaturedPosts/>
-      <Testimonial/>
+      <Testimonials/>
       <HomeCta/>
       {/* Other landing-page sections will go here */}
     </main>

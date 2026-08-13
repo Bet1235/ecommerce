@@ -1,6 +1,6 @@
 import "./FeaturedPosts.css";
 
-import featuredPost1 from "../../../assets/posts/fixed-height1.png";
+import featuredPost1 from "../../../assets/posts/unsplash1.png";
 import featuredPost2 from "../../../assets/posts/unsplash2.png";
 import featuredPost3 from "../../../assets/posts/unsplash3.png";
 
@@ -28,6 +28,9 @@ const FeaturedPosts = () => {
     <section className="featured-posts">
       <div className="container">
         <div className="featured-posts__header">
+          <p className="featured__description">
+            Practice Advice
+          </p>
           <h2 className="featured-posts__title">
             Featured Posts
           </h2>

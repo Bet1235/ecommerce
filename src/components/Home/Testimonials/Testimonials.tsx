@@ -1,6 +1,6 @@
 import "./Testimonials.css";
 
-import Avatar from "../../../assets/reviews/#user.1.png";
+import Avatar from "../../../assets/reviews/user.1.png";
 
 import Review1 from "../../../assets/reviews/unsplash_rhn8ff1G_QY.png";
 import Review2 from "../../../assets/reviews/unsplash_jo40QKbxUP0.png";
