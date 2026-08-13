@@ -1,6 +1,3 @@
-/* ========================================
-   SERVICES
-   ======================================== */
 
 .services {
   width: 100%;
@@ -11,14 +8,31 @@
 }
 
 
-/* ========================================
-   HEADER
-   ======================================== */
-
 .services__header {
   margin-bottom: 45px;
 
   text-align: center;
+}
+.services__eyebrow {
+  margin: 0 0 8px;
+
+  color: var(--color-text);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  text-transform: none;
+  letter-spacing: 0;
+}
+.services__description {
+  margin: 8px auto 0;
+
+  max-width: 500px;
+
+  color: var(--color-text);
+
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .services__title {
@@ -34,11 +48,6 @@
   text-transform: uppercase;
 }
 
-
-/* ========================================
-   SERVICES GRID
-   ======================================== */
-
 .services__grid {
   display: grid;
 
@@ -52,10 +61,6 @@
 }
 
 
-/* ========================================
-   SERVICE CARD
-   ======================================== */
-
 .service-card {
   display: flex;
   flex-direction: column;
@@ -66,10 +71,6 @@
   text-align: center;
 }
 
-
-/* ========================================
-   ICON
-   ======================================== */
 
 .service-card__icon-wrapper {
   display: flex;
@@ -92,10 +93,6 @@
 }
 
 
-/* ========================================
-   TITLE
-   ======================================== */
-
 .service-card__title {
   margin: 0 0 12px;
 
@@ -107,10 +104,6 @@
   line-height: 1.3;
 }
 
-
-/* ========================================
-   DESCRIPTION
-   ======================================== */
 
 .service-card__description {
   width: 100%;
@@ -128,18 +121,23 @@
 }
 
 
-/* ========================================
-   MOBILE
-   ======================================== */
-
 @media (max-width: 767px) {
   .services {
     padding: 55px 30px 65px;
+  }
+  .services__eyebrow {
+    font-size: 12px;
   }
 
   .services__header {
     margin-bottom: 40px;
   }
+  .services__description {
+    max-width: 280px;
+
+    font-size: 12px;
+  }
+
 
   .services__title {
     font-size: 18px;
@@ -178,11 +176,6 @@
   }
 }
 
-
-/* ========================================
-   SMALL PHONES
-   ======================================== */
-
 @media (max-width: 390px) {
   .services {
     padding-left: 20px;
@@ -194,10 +187,6 @@
   }
 }
 
-
-/* ========================================
-   DESKTOP
-   ======================================== */
 
 @media (min-width: 1100px) {
   .services {

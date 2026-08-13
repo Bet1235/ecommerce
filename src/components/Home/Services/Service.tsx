@@ -97,9 +97,18 @@ const Services = () => {
     <section className="services">
       <div className="container">
         <header className="services__header">
-          <h2 className="services__title">
+          <p className="services__eyebrow">
+            Featured Products
+          </p>
+
+         <h2 className="services__title">
             THE BEST SERVICES
           </h2>
+
+          <p className="services__description">
+            Problems trying to resolve the conflict between
+          </p>
+          
         </header>
 
         <div className="services__grid">

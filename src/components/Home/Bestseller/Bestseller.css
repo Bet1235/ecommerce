@@ -1,6 +1,3 @@
-/* ========================================
-   BESTSELLERS SECTION
-   ======================================== */
 
 .bestsellers {
   width: 100%;
@@ -12,10 +9,6 @@
   width: 100%;
 }
 
-
-/* ========================================
-   SECTION HEADER
-   ======================================== */
 
 .bestsellers__header {
   margin-bottom: 38px;
@@ -57,11 +50,6 @@
   line-height: 1.5;
 }
 
-
-/* ========================================
-   PRODUCT GRID
-   ======================================== */
-
 .bestsellers__grid {
   display: grid;
 
@@ -72,11 +60,6 @@
 
   width: 100%;
 }
-
-
-/* ========================================
-   VIEW MORE BUTTON
-   ======================================== */
 
 .bestsellers__action {
   display: flex;
@@ -116,10 +99,6 @@
 }
 
 
-/* ========================================
-   LOADING / ERROR
-   ======================================== */
-
 .bestsellers__state {
   display: grid;
 
@@ -132,10 +111,6 @@
   text-align: center;
 }
 
-
-/* ========================================
-   MOBILE
-   ======================================== */
 
 @media (max-width: 767px) {
   .bestsellers {
@@ -184,11 +159,6 @@
   }
 }
 
-
-/* ========================================
-   TABLET
-   ======================================== */
-
 @media (min-width: 768px) {
   .bestsellers {
     padding: 65px 30px 75px;
@@ -203,10 +173,6 @@
 }
 
 
-/* ========================================
-   DESKTOP
-   ======================================== */
-
 @media (min-width: 1100px) {
   .bestsellers {
     padding: 75px 40px 85px;
@@ -216,10 +182,6 @@
     margin-bottom: 40px;
   }
 
-  /*
-    Figma desktop:
-    FIVE products per row.
-  */
 
   .bestsellers__grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
